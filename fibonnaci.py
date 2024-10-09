@@ -14,10 +14,30 @@ Create a program that generates Fibonacci numbers less than a limit and writes t
 Task: Generate the Fibonacci numbers less than 100 and write them to `fibonacci_100.txt`
 """
 
-def some_function(an_argument):
-    # Do something
+def fibonacci_seq(limit = 100):
+	fibonacci_nums = [0,1]
+	max_number = 1
 
-    return something
+	while max_number < int(limit):
+		n= fibonacci_nums[-1] + fibonacci_nums[-2]
+		max_number = n
+		if max_number >= int(limit):
+			return fibonacci_nums
+		fibonacci_nums.append(n)
+		
+	return fibonacci_nums
+
+
 
 if __name__ == "__main__":
-    # Do stuff here
+	with open('fibonacci_100.txt', 'w') as file:
+		fib_list = fibonacci_seq(100)
+		file.write('0, 1, ')
+		for i in range(2, len(fib_list)):
+			file.write(str(fib_list[i]) + ' (' + str(fib_list[i-2]) + '+' + str(fib_list[i-1]) + '), ')
+	
+	# Do stuff here
+    
+    
+    
+    

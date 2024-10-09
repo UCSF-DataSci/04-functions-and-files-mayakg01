@@ -12,3 +12,30 @@ Task: Find the largest prime Fibonacci number less that 50000
 """
 
 # You're on your own for this one. Good luck!
+
+
+import fibonnaci
+import sys
+
+
+def number_prime(n):
+	for i in range(2,(n//2)+ 1):
+		if n%i == 0:
+			return False
+	return True		
+
+
+fib_list = fibonnaci.fibonacci_seq(sys.argv[1])
+largest_prime_number = 2
+for n in fib_list:
+	if number_prime(n):
+		largest_prime_number = n
+
+print(largest_prime_number)
+
+	
+
+			   
+
+
+
